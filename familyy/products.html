@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>商品介紹 | 全家便利商店</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- 導覽列 -->
+  <header class="bg-green-600 text-white p-4 flex justify-between">
+    <a href="index.html" class="text-white font-bold text-lg">← 回首頁</a>
+    <a href="cart.html" class="inline-flex items-center relative">
+  🛒<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span></a>
+
+
+  </header>
+
+  <!-- 主要區塊：分類導覽 -->
+  <main class="py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-3xl font-extrabold text-green-700 mb-10">商品分類總覽</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 吃的 -->
+        <div class="bg-green-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-green-800 mb-4">🍱 吃的</h3>
+          <p class="text-gray-700 mb-4">便當、飯糰、甜點等熱門美食。</p>
+          <a href="products_food.html" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">前往吃的商品</a>
+        </div>
+        <!-- 喝的 -->
+        <div class="bg-blue-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-blue-800 mb-4">🥤 喝的</h3>
+          <p class="text-gray-700 mb-4">咖啡、飲料、機能茶品等。</p>
+          <a href="products_drink.html" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">前往喝的商品</a>
+        </div>
+        <!-- 生活用品 -->
+        <div class="bg-yellow-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-yellow-800 mb-4">🧻 生活用品</h3>
+          <p class="text-gray-700 mb-4">濕紙巾、洗手乳、生活小物等。</p>
+          <a href="products_life.html" class="inline-block bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">前往生活用品</a>
+        </div>
+      </div>
+    </div>
+  </main>
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const count = cart.length;
+    const el = document.getElementById("cart-count");
+    if (el) el.textContent = count;
+  }
+
+  window.onload = updateCartCount;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>會員登入 / 註冊 | 全家便利商店</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMode() {
+      const modeText = document.getElementById("modeText");
+      const submitBtn = document.getElementById("submitBtn");
+      const switchLink = document.getElementById("switchMode");
+      const isLogin = submitBtn.textContent.includes("登入");
+      submitBtn.textContent = isLogin ? "註冊" : "登入";
+      modeText.textContent = isLogin ? "註冊新帳號" : "登入帳號";
+      switchLink.textContent = isLogin ? "已經有帳號？點我登入" : "還沒有帳號？點我註冊";
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      if (!email || !password) {
+        alert("請填寫帳號與密碼！");
+        return;
+      }
+      const action = document.getElementById("submitBtn").textContent;
+      alert(`${action}成功！歡迎您，${email}`);
+      window.location.href = "member.html";
+    }
+  </script>
+</head>
+<body class="bg-gray-100">
+  <!-- 表單畫面請見上方 preview，貼上完整程式碼可使用 -->
+</body>
+</html>

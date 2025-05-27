@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>吃的商品一覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount?.();
+      alert(item.name + " 已加入購物車！");
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const count = cart.length;
+      const el = document.getElementById("cart-count");
+      if (el) el.textContent = count;
+    }
+
+    window.onload = updateCartCount;
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-red-500 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">吃的商品一覽</h1>
+      <div class="space-x-2">
+        <a href="products.html" class="bg-white text-red-600 px-3 py-1 rounded hover:bg-red-100 text-sm">← 回商品總覽</a>
+        <a href="index.html" class="bg-white text-red-600 px-3 py-1 rounded hover:bg-red-100 text-sm">回首頁</a>
+      <a href="cart.html" class="inline-flex items-center relative">
+  🛒<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span></a>
+
+</div>
+    </div>
+  </header>
+
+  <main class="p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 商品 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_08.jpg" alt="明太子龍蝦風味沙拉飯糰" class="w-full h-52 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">明太子龍蝦風味沙拉飯糰</h3>
+          <p class="text-gray-600 mb-4">暢銷明太子龍蝦風味沙拉飯糰，內餡沙拉風味增強、添加魷丁、蟹味絲等提升口感與層次風味！</p>
+          <p class="text-green-700 font-bold text-lg mb-2">售價：$38</p>
+          <button onclick="addToCart({ name: '明太子飯糰', price: 38 })"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-red-600">加入購物車</button>
+        </div>
+      </div>
+
+      <!-- 商品 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_22.jpg" alt="爆餡藍莓餐包" class="w-full h-52 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">爆餡藍莓餐包</h3>
+          <p class="text-gray-600 mb-4">【藍莓季】細緻麵包體加入碎葡萄乾增加外觀及香甜風味，內餡使用來自加拿大藍莓製成的藍莓果醬拌入奶油，帶出柔順的酸甜莓果滋味。加熱後，咬下產生爆餡口感，更顯藍莓香氣。三入裝，一次吃完好滿足，也可分享當小點，享受小確幸。</p>
+          <p class="text-green-700 font-bold text-lg mb-2">售價：$35</p>
+          <button onclick="addToCart({ name: '爆漿奶黃包', price: 35 })"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-red-600">加入購物車</button>
+        </div>
+      </div>
+<!-- 蕃茄莎莎鮪魚冷義大利麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_01.jpg" alt="蕃茄莎莎鮪魚冷義大利麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">蕃茄莎莎鮪魚冷義大利麵</h3>
+    <p class="text-gray-600 mb-4">選用滑順、Q彈口感天使麵和低熱量高蛋白鮪魚，搭配蕃茄丁、黑橄欖、青花菜等清爽型配菜，最後淋上新鮮番茄風味帶點微酸特製蕃茄莎莎醬，整體清爽順口無負擔。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$85</p>
+    <button onclick="addToCart({ name: '蕃茄莎莎鮪魚冷義大利麵', price: 85 })" 
+       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 西西里雞肉冷義大利麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_02.jpg" alt="西西里雞肉冷義大利麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">西西里雞肉冷義大利麵</h3>
+    <p class="text-gray-600 mb-4">選用滑順Q彈天使麵與西西里香草醬汁，酸鹹油醋帶有檸檬清香，並搭配煙燻雞絲、小黃瓜、紅黃甜椒、黑橄欖等配菜，風味香氣濃郁、酸鹹可口，夏日清爽首選。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$85</p>
+    <button onclick="addToCart({ name: '西西里雞肉冷義大利麵', price: 85 },)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 羅勒海鮮冷義大利麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_03.jpg" alt="羅勒海鮮冷義大利麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">羅勒海鮮冷義大利麵</h3>
+    <p class="text-gray-600 mb-4">選用天使細麵，口感滑溜，清爽有飽足感。使用薄荷羅勒青醬，清香四溢，搭配南瓜丁、蝦仁、紅甜椒丁，呈現豐富口感。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$85</p>
+    <button onclick="addToCart( { name: '羅勒海鮮冷義大利麵', price: 85 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 和風涓絲冷麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_04.jpg" alt="和風涓絲冷麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">和風涓絲冷麵</h3>
+    <p class="text-gray-600 mb-4">絲滑麵體搭配鰹魚昆布醬油，鰹魚鮮味中帶有昆布甘甜，以芥末辛辣提味，讓炎炎夏日更顯清爽。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$55</p>
+    <button onclick="addToCart({ name: '和風涓絲冷麵', price: 55 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 日式蕎麥沾麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0430_02.jpg" alt="日式蕎麥沾麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">日式蕎麥沾麵</h3>
+    <p class="text-gray-600 mb-4">麵條增厚並選用30%日本蕎麥粉，以整顆蕎麥研磨，搭配鰹魚厚削醬汁、蔥花、海帶芽，層次鮮明清爽。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$69</p>
+    <button onclick="addToCart( { name: '日式蕎麥沾麵', price: 69 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 椒麻香蔥雞涼拌麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0430_01.jpg" alt="椒麻香蔥雞涼拌麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">椒麻香蔥雞涼拌麵</h3>
+    <p class="text-gray-600 mb-4">厚芯波浪麵條滑溜Q彈，搭配醬香雞絲與青蔥絲，淋上特製香蔥醬與椒麻辣油，鹹甜中帶花椒香。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$69</p>
+    <button onclick="addToCart({ name: '椒麻香蔥雞涼拌麵', price: 69 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 芝麻鰹魚烏龍冷麵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0430_03.jpg" alt="芝麻鰹魚烏龍冷麵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">芝麻鰹魚烏龍冷麵</h3>
+    <p class="text-gray-600 mb-4">讚岐烏龍麵滑Q彈牙，搭配小黃瓜絲與蛋絲，淋上日本芝麻油鰹魚昆布醬油，清爽中帶濃郁醬香。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$69</p>
+    <button onclick="addToCart({ name: '芝麻鰹魚烏龍冷麵', price: 69 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 薯勾以蛋包飯 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_05.jpg" alt="薯勾以蛋包飯" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">薯勾以蛋包飯</h3>
+    <p class="text-gray-600 mb-4">軟嫩蛋皮包香Q米飯，搭配蕃茄紅醬與雙色起司，再加一片薯餅，酸甜濃郁，罪惡美味。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$89</p>
+    <button onclick="addToCart( { name: '薯勾以蛋包飯', price: 89 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 鋪天蓋地蒸蛋飯 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0430_06.jpg" alt="鋪天蓋地蒸蛋飯" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">鋪天蓋地蒸蛋飯</h3>
+    <p class="text-gray-600 mb-4">滑順鰹魚高湯蒸蛋搭配冰糖滷汁肉燥，甘醇不膩口，份量十足，滿足年輕族群胃口。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$99</p>
+    <button onclick="addToCart({ name: '鋪天蓋地蒸蛋飯', price: 99 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 大口金黃薯牛堡飯糰 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_10.jpg" alt="大口金黃薯牛堡飯糰" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">大口金黃薯牛堡飯糰</h3>
+    <p class="text-gray-600 mb-4">薯餅、牛肉漢堡排、切達起司、蕃茄醬與炒洋蔥丁的完美結合，創新西式飯糰風味。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$62</p>
+    <button onclick="addToCart({ name: '大口金黃薯牛堡飯糰', price: 62 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 海饌雙手卷 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_11.jpg" alt="海饌雙手卷" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">海饌雙手卷</h3>
+    <p class="text-gray-600 mb-4">鮪魚玉米沙拉與巴沙魚鮭魚沙拉，風味升級、撕口便利，口感豐富。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$55</p>
+    <button onclick="addToCart({ name: '海饌雙手卷', price: 55 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 雙饗雙手卷 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/food_0514_12.jpg" alt="雙饗雙手卷" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">雙饗雙手卷</h3>
+    <p class="text-gray-600 mb-4">龍蝦海鮮沙拉提升鮮甜風味，焙炒肉鬆捲升級為義式雞腿捲，香料十足，適合元氣早晨。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">售價：$55</p>
+    <button onclick="addToCart({ name: '雙饗雙手卷', price: 55 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+      
+    </div>
+  </main>
+</body>
+</html>

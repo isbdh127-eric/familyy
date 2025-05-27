@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>喝的商品一覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount?.();
+      alert(item.name + " 已加入購物車！");
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const count = cart.length;
+      const el = document.getElementById("cart-count");
+      if (el) el.textContent = count;
+    }
+
+    window.onload = updateCartCount;
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <header class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">喝的商品一覽</h1>
+      <div class="space-x-2">
+        <a href="products.html" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-blue-100 text-sm">← 回商品總覽</a>
+        <a href="index.html" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-blue-100 text-sm">回首頁</a>
+<a href="cart.html" class="inline-flex items-center relative">
+  🛒<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span></a>
+
+</div>
+    </div>
+  </header>
+
+  <main class="p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 崎本莓果乳酸飲 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0430_10.jpg" alt="崎本莓果乳酸飲" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">崎本莓果乳酸飲</h3>
+    <p class="text-gray-600 mb-4">日本知名品牌SAKImoto，將其對於製作吐司的堅持，轉化開發在莓果系列的飲品。莓果乳酸飲：蔓越莓、草莓、覆盆莓、櫻桃、黑醋栗、醋栗等多種莓果，搭配香甜乳酸，酸酸甜甜好滋味。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$35</p>
+    <button onclick="addToCart({ name: '崎本莓果乳酸飲', price: 35 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- FMC鮮榨西瓜汁 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/fmc_0402_4.jpg" alt="FMC鮮榨西瓜汁" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">FMC鮮榨西瓜汁</h3>
+    <p class="text-gray-600 mb-4">選用台灣紅肉大西瓜，新鮮榨取，100%原汁。符合慈悅100%無添加。HPP保鮮技術保留自然風味。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$45</p>
+    <button onclick="addToCart({ name: 'ＦＭＣ鮮榨西瓜汁', price: 45 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- FMC樂多綠茶 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/fmc_0402_1.jpg" alt="FMC樂多綠茶" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">FMC樂多綠茶</h3>
+    <p class="text-gray-600 mb-4">獨家符合慈悅雙潔淨的乳酸配方，無添加香料、色素、防腐劑。茶種升級茉香綠茶，尾韻清香回甘。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$35</p>
+    <button onclick="addToCart({ name: 'FMC 樂多綠茶', price: 35 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- FMC贅澤黑可可 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/fmc_1030_1.jpg" alt="FMC贅澤黑可可" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">FMC贅澤黑可可</h3>
+    <p class="text-gray-600 mb-4">濃厚厚實口感，絲滑黑可可與牛乳融合。大人味黑可可，無添加香料，使用香濃可可粉。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$40</p>
+    <button onclick="addToCart({ name: 'FMC 贅澤黑可可', price: 40 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 立頓蜂蜜紅茶 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0430_12.jpg" alt="立頓蜂蜜紅茶" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">立頓蜂蜜紅茶</h3>
+    <p class="text-gray-600 mb-4">蜂蜜使用100%天然蜂蜜，甜韻自然不膩口。使用100%斯里蘭卡紅茶。黃金比例完美平衡醇厚茶韻與蜂蜜清甜的絕妙滋味。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$29</p>
+    <button onclick="addToCart({ name: '立頓蜂蜜紅茶', price: 29 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 不含貘芝麻牛奶 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0416_2.jpg" alt="不含貘芝麻牛奶" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">不含貘芝麻牛奶</h3>
+    <p class="text-gray-600 mb-4">馬來貘插畫家獨家聯名。乳含量50%以上。芝麻的獨特堅果香氣與牛奶的滑順口感相融合。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$38</p>
+    <button onclick="addToCart( { name: '不含貘芝麻牛奶', price: 38 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- C&C荔枝果茶氣泡飲 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0402_10.jpg" alt="C&C荔枝果茶氣泡飲" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">C&C荔枝果茶氣泡飲</h3>
+    <p class="text-gray-600 mb-4">荔枝果汁搭配紅茶基底，與清爽氣泡碰撞出清新風味 (果汁含量2%)。添加維他命C，滿足一日所需。具備清真認證。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$35</p>
+    <button onclick="addToCart({ name: 'Ｃ＆Ｃ荔枝果茶氣泡飲', price: 35 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 原萃台灣青茶 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0305_11.jpg" alt="原萃台灣青茶" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">原萃台灣青茶</h3>
+    <p class="text-gray-600 mb-4">無糖、無香料。雲霧工法，細磨茶葉精華入湯。釋放多層次茶韻。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$29</p>
+    <button onclick="addToCart({ name: '原萃台灣青茶', price: 29 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 義美無加糖高鈣豆奶 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0305_8.jpg" alt="義美無加糖高鈣豆奶" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">義美無加糖高鈣豆奶</h3>
+    <p class="text-gray-600 mb-4">使用特選原裝進口「袋裝食品級・非基因改造」黃豆。優質植物蛋白質及富含鈣質。零膽固醇、不含防腐劑。口感香醇，營養補給，健康維持!</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$30</p>
+    <button onclick="addToCart({ name: '義美無加糖高鈣豆奶', price: 30 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 茶湯會觀音拿鐵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/new_0305_10.jpg" alt="茶湯會觀音拿鐵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">茶湯會觀音拿鐵</h3>
+    <p class="text-gray-600 mb-4">乳含量50%。成分簡單自然，無香料。以茶葉萃取，綻放醇厚鐵觀音茶香氣；茶香奶香飽滿平衡。熱銷品項回歸上市。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：$38</p>
+    <button onclick="addToCart({ name: '茶湯會觀音拿鐵', price: 38 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+          </div>
+  </main>
+</body>
+</html>

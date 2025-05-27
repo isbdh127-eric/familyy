@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>生活用品一覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount?.();
+      alert(item.name + " 已加入購物車！");
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const count = cart.length;
+      const el = document.getElementById("cart-count");
+      if (el) el.textContent = count;
+    }
+
+    window.onload = updateCartCount;
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-yellow-400 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">生活用品一覽</h1>
+      <div class="space-x-2">
+        <a href="products.html" class="bg-white text-yellow-700 px-3 py-1 rounded hover:bg-yellow-100 text-sm">← 回商品總覽</a>
+        <a href="index.html" class="bg-white text-yellow-700 px-3 py-1 rounded hover:bg-yellow-100 text-sm">回首頁</a>
+<a href="cart.html" class="inline-flex items-center relative">
+  🛒<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span></a>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      
+      <!-- （串）超柔抽取式衛生紙 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/09.jpg" alt="（串）超柔抽取式衛生紙" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">（串）超柔抽取式衛生紙</h3>
+    <p class="text-gray-600 mb-2">110抽/8包</p>
+    <p class="text-gray-600 mb-4">超柔軟觸感，紙質柔軟更舒服，安心保證，不含螢光劑、不染色、使用原生紙漿、高溫殺菌。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$230</p>
+    <button onclick="addToCart({ name: '超柔抽取式衛生紙', price: 230 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 植萃控油蓬鬆洗髮露 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/12.jpg" alt="植萃控油蓬鬆洗髮露" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">植萃控油蓬鬆洗髮露</h3>
+    <p class="text-gray-600 mb-2">300ml</p>
+    <p class="text-gray-600 mb-4">深層清潔頭皮並調理肌膚。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '植萃控油蓬鬆洗髮露', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 植萃抗菌洗手露 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/15.jpg" alt="植萃抗菌洗手露" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">植萃抗菌洗手露</h3>
+    <p class="text-gray-600 mb-2">300ml</p>
+    <p class="text-gray-600 mb-4">溫和洗淨雙手，滋潤潔淨雙效合一。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '植萃抗菌洗手露', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 植萃香氛香皂 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/16.jpg" alt="植萃香氛香皂" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">植萃香氛香皂</h3>
+    <p class="text-gray-600 mb-2">100g x3</p>
+    <p class="text-gray-600 mb-4">溫和洗淨，清爽潔淨。天然植萃精油添加，滋潤肌膚不乾澀。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '植萃香氛香皂', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 酒精擦濕巾 60 抽 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/23.jpg" alt="酒精擦濕巾 60抽" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">酒精擦濕巾 60抽</h3>
+    <p class="text-gray-600 mb-2">60抽</p>
+    <p class="text-gray-600 mb-4">特殊加蓋設計，防止酒精揮發！通過台美抗菌測試，99%有效抗菌、超大尺寸，清潔面積加倍，不含香精！</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '酒精擦濕巾 60 抽', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 香氛包 - 鳶尾白麝香 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/29.jpg" alt="香氛包 - 鳶尾白麝香" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">香氛包 - 鳶尾白麝香</h3>
+    <p class="text-gray-600 mb-2">3入/袋</p>
+    <p class="text-gray-600 mb-4">具天然超微孔隙，調節平衡濕氣、淨化空間！經典香氛，植物萃取精華，提升空間氛圍。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart{ name: '香氛包 - 鳶尾白麝香', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 茶樹海綿菜瓜布 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/38.jpg" alt="茶樹海綿菜瓜布" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">茶樹海綿菜瓜布</h3>
+    <p class="text-gray-600 mb-2">4入</p>
+    <p class="text-gray-600 mb-4">添加澳洲天然茶樹精油，清香抑菌。獨特無砂細纖材質，餐具不刮傷。採用細緻海綿、起泡迅速清洗快。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '茶樹海綿菜瓜布', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 無雙酚 A 烘焙紙 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/41.jpg" alt="無雙酚 A 烘焙紙" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">無雙酚 A 烘焙紙</h3>
+    <p class="text-gray-600 mb-2">1支</p>
+    <p class="text-gray-600 mb-4">通過日本嚴格檢驗無雙酚A。經SGS檢驗無塑化劑。使用100%純紙漿，來自芬蘭大自然森林。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '無雙酚 A 烘焙紙', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 除濕盒 - 玫瑰天竺葵 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/43.jpg" alt="除濕盒 - 玫瑰天竺葵" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">除濕盒 - 玫瑰天竺葵</h3>
+    <p class="text-gray-600 mb-2">1入</p>
+    <p class="text-gray-600 mb-4">小巧體積設計，可吸濕高達360ml，自然清新，杜絕衣物霉味，除濕、防霉味、香氛 EX長效環保配方。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$79</p>
+    <button onclick="addToCart({ name: '除濕盒 - 玫瑰天竺葵', price: 79 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+
+<!-- 石墨烯發熱衣—女黑Ｓ -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+  <img src="https://nevent.family.com.tw/famicollection/images/product/fmc_4/02.jpg" alt="石墨烯發熱衣—女黑Ｓ" class="w-full h-52 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">石墨烯發熱衣—女黑Ｓ</h3>
+    <p class="text-gray-600 mb-2">1入</p>
+    <p class="text-gray-600 mb-4">石墨烯發熱衣再升級 (包含XL/L/M/S)。</p>
+    <p class="text-green-700 font-bold text-lg mb-2">價格：NT$699</p>
+    <button onclick="addToCart({ name: '石墨烯發熱衣—女黑Ｓ', price: 699 })" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">加入購物車</button>
+  </div>
+</div>
+    </div>
+  </main>
+</body>
+</html>
