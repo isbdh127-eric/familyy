@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>全家便利商店 | 輪播廣告主頁</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .carousel-item { display: none; }
+    .carousel-item.active { display: flex; }
+  </style>
+  <script>
+    let current = 0;
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.carousel-item');
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      const slides = document.querySelectorAll('.carousel-item');
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    function prevSlide() {
+      const slides = document.querySelectorAll('.carousel-item');
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const count = cart.length;
+      const el = document.getElementById("cart-count");
+      if (el) el.textContent = count;
+    }
+    window.onload = function () {
+      showSlide(current);
+      setInterval(nextSlide, 5000);
+      updateCartCount();
+    };
+  </script>
+</head>
+<body class="bg-green-100 font-sans">
+
+  <!-- 導覽列 -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold text-blue-700">FamilyMart</span>
+      </div>
+      <nav class="space-x-6 text-gray-700 font-medium text-sm">
+        <a href="https://www.family.com.tw/web_enterprise/page/news.aspx" target="_blank" class="hover:text-green-600">新聞中心</a>
+        <a href="https://hrrecruit.family.com.tw/" target="_blank" class="hover:text-green-600">人才招募</a>
+        <a href="faq.html" class="hover:text-green-600">常見問題</a>
+        <a href="products.html" class="hover:text-green-600">商品介紹</a>
+        <a href="member.html" class="hover:text-green-600">會員專區</a>
+        <a href="cart.html" class="inline-flex items-center relative">
+          🛒<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+<!-- 輪播區塊 -->
+<section class="bg-green-700 py-6 relative">
+  <div class="container mx-auto px-4 relative overflow-hidden">
+
+    <!-- 輪播圖片項目 -->
+    <div class="carousel-item active bg-white rounded-lg p-3 items-center justify-between shadow-md">
+      <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/1_0514_BBQ%E8%81%AF%E5%90%8D.jpg" alt="酷繽沙活動" class="w-full h-[600px] object-cover rounded-lg">
+    </div>
+    <div class="carousel-item bg-white rounded-lg p-3 items-center justify-between shadow-md">
+      <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/2_0514_UNOPASTA.jpg" alt="訂閱優惠" class="w-full h-[600px] object-cover rounded-lg">
+    </div>
+    <div class="carousel-item bg-white rounded-lg p-3 items-center justify-between shadow-md">
+      <img src="https://www.family.com.tw/Manager/MarketingBS/Content/Pic/3_0514_%E7%99%BD%E6%A1%83%E6%A2%85%E5%AD%90%E9%85%B7%E7%B9%BD%E6%B2%99.jpg" alt="冰品促銷" class="w-full h-[600px] object-cover rounded-lg">
+    </div>
+
+    <!-- 左右切換按鈕 -->
+    <button onclick="prevSlide()" class="absolute top-1/2 -translate-y-1/2 left-2 bg-white bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">←</button>
+    <button onclick="nextSlide()" class="absolute top-1/2 -translate-y-1/2 right-2 bg-white bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">→</button>
+  </div>
+</section>
+
+<script>
+  let current = 0;
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+  }
+  function nextSlide() {
+    const slides = document.querySelectorAll('.carousel-item');
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+  function prevSlide() {
+    const slides = document.querySelectorAll('.carousel-item');
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+  window.onload = function () {
+    showSlide(current);
+    setInterval(nextSlide, 5000);
+  };
+</script>
+
+
+
+  
+
+  <!-- 主內容 -->
+  <main class="bg-white text-center py-12 shadow-inner">
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-4">歡迎來到全家便利商店網站</h1>
+    <p class="text-gray-600 text-base">探索我們的商品與最新活動</p>
+  </main>
+
+  <!-- 關於全家 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto max-w-5xl px-6">
+      <div class="bg-white p-10 rounded-2xl shadow-lg border border-green-300">
+        <h2 class="text-4xl font-extrabold text-green-800 mb-6 border-b-2 border-green-500 pb-2">關於全家</h2>
+        <div class="text-lg text-gray-800 leading-relaxed font-medium space-y-5">
+          <p>全家便利商店自1988年設立以來，秉持「全家就是你家」的服務理念，持續深耕台灣市場，為消費者提供多元、便利且人性化的服務。</p>
+          <p>從自家品牌如 <strong>Let's Café、Fami霜淇淋、Fami Collection</strong> 到推出 App、點數、行動支付，我們為生活注入更多驚喜與便利。</p>
+          <p>我們推動環保減塑、社區關懷與數位創新，致力成為結合科技與溫度的便利生活平台。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 尋找門市 -->
+  <section class="bg-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold text-green-700 mb-4">尋找全台門市</h2>
+        <p class="text-gray-700 mb-4">你可以透過 Google 地圖快速查找離你最近的全家便利商店。</p>
+        <a href="https://www.google.com/maps/search/全家便利商店" target="_blank"
+          class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">
+          在 Google 地圖開啟
+        </a>
+      </div>
+    </div>
+  </section>
+<!-- App 下載區塊 -->
+<section class="bg-white py-12">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">全家行動應用程式下載</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      
+      <!-- 全家 APP -->
+      <div class="border rounded-xl p-4 shadow">
+        <p class="font-semibold mb-1">全家 APP</p>
+        <p class="text-sm text-gray-500 mb-2">iOS：7.9.0<br>安卓：10.056.03</p>
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/fm_app.png" alt="FamilyMart APP QR" class="mx-auto w-32 h-auto mb-2">
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/fm_app_qrcode.png" alt="FamilyMart Logo" class="mx-auto w-20">
+      </div>
+
+      <!-- My FamiPort APP -->
+      <div class="border rounded-xl p-4 shadow">
+        <p class="font-semibold mb-1">My FamiPort APP</p>
+        <p class="text-sm text-gray-500 mb-2">iOS / 安卓：24121601</p>
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/famiport_app.png" alt="My FamiPort QR" class="mx-auto w-32 h-auto mb-2">
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/famiport_app_qrcode.png?1028" alt="FamiPort Logo" class="mx-auto w-20">
+      </div>
+
+      <!-- 行動購 APP -->
+      <div class="border rounded-xl p-4 shadow">
+        <p class="font-semibold mb-1">全家行動購 APP</p>
+        <p class="text-sm text-gray-500 mb-2">iOS / 安卓</p>
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/fm_eshop.png" alt="行動購 QR" class="mx-auto w-32 h-auto mb-2">
+        <img src="https://www.family.com.tw/Marketing/images/qrcode/martapp_qrcode.png" alt="Shopping Logo" class="mx-auto w-20">
+      </div>
+
+    </div>
+    <p class="text-xs text-gray-500 mt-6">* 建議您安裝防毒軟體以保障行動裝置的安全</p>
+  </div>
+</section>
+
+</body>
+</html>
+

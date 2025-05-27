@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>購物車 | 全家便利商店</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-extrabold text-green-700">購物車</h1>
+      <a href="index.html" class="text-sm text-blue-600 hover:underline">← 回首頁</a>
+    </div>
+  </header>
+
+  <main class="py-12">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <div class="bg-white rounded-xl p-6 shadow space-y-4">
+        <h2 class="text-2xl font-bold text-green-800">您加入的商品</h2>
+        <ul id="cartList" class="space-y-4 text-gray-800"></ul>
+        <div class="border-t pt-4 text-right">
+          <p class="text-lg">總金額：<span id="totalAmount" class="text-green-700 font-bold text-xl">NT$0</span></p>
+        </div>
+        <div class="flex justify-end space-x-4 pt-4">
+          <button onclick="clearCart()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">清空購物車</button>
+          <button onclick="checkout()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">結帳</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const list = document.getElementById("cartList");
+      const totalAmount = document.getElementById("totalAmount");
+      list.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "flex justify-between items-center bg-gray-50 p-4 rounded shadow";
+        li.innerHTML = `
+          <div>
+            <p class="font-bold">${item.name}</p>
+            <p class="text-sm text-gray-600">NT$${item.price}</p>
+          </div>
+          <button onclick="removeItem(${index})" class="text-red-600 hover:underline">🗑 移除</button>
+        `;
+        list.appendChild(li);
+        total += item.price;
+      });
+      totalAmount.textContent = "NT$" + total;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      renderCart();
+    }
+
+    function checkout() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      if (cart.length === 0) {
+        alert("購物車是空的！");
+        return;
+      }
+      alert("結帳成功，感謝您的購買！");
+      localStorage.removeItem("cart");
+      renderCart();
+    }
+
+    window.onload = renderCart;
+  </script>
+</body>
+</html>

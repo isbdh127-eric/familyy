@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>常見問題 | 全家便利商店</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function filterFAQs() {
+      const keyword = document.getElementById("faqSearch").value.toLowerCase();
+      const faqs = document.querySelectorAll(".faq-item");
+      faqs.forEach(faq => {
+        const text = faq.innerText.toLowerCase();
+        faq.style.display = text.includes(keyword) ? "block" : "none";
+      });
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold text-blue-700">FamilyMart</span>
+      </div>
+      <nav class="space-x-6 text-gray-700 font-medium text-sm">
+<a href="index.html" class="hover:text-green-600">首頁</a>
+        <a href="https://www.family.com.tw/web_enterprise/page/news.aspx" target="_blank" class="hover:text-green-600">新聞中心</a>
+        <a href="https://hrrecruit.family.com.tw/" target="_blank" class="hover:text-green-600">人才招募</a>
+        <a href="faq.html" class="hover:text-green-600">常見問題</a>
+        <a href="products.html" class="hover:text-green-600">商品介紹</a>
+        <a href="member.html" class="hover:text-green-600">會員專區</a>
+        <a href="products.html" class="inline-flex items-center relative">
+          🛒<span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-green-700 mb-10">常見問題</h2>
+      <div class="mb-6 text-center">
+        <input type="text" id="faqSearch" onkeyup="filterFAQs()" placeholder="輸入關鍵字搜尋問題..."
+          class="w-full md:w-1/2 px-4 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring focus:border-green-500 shadow-sm" />
+      </div>
+      <div class="space-y-4" id="faqList">
+        <!-- Q1–Q14 -->
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q1: 累點方式?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 1.出示手機APP累點條碼；2.於櫃檯報手機號碼(須為全家官網會員)累點；3.出示全家集點卡累點；4.持已綁定全家會員帳號的悠遊卡支付；5.憑行動支付My FamiPay結帳</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q2: 兌點方式?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 1.會員可在手機APP產生兌點條碼，持條碼至櫃檯結帳。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q3: APP 行動載具種類?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 目前 全家APP 及 My FamiPort APP 均可以累點及兌點。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q4: 已是My FamiPort APP的會員，還需要重新入會才會有集點條碼?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: My FamiPort APP的登入方式有三種：1.行動電話 2.全家帳號 3.FB帳號，但必須以全家帳號登入才能使用集點功能；若是行動電話及FACEBOOK登入，則無法進行集點功能操作。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q5: 累點資料是即時在手機APP查詢的到嗎？可以查到累點明細嗎?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 可以，透由點數查詢功能查到近100筆累兌資料。(網路瞬間通路異常除外)</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q6: 退貨時點數要歸還嗎?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 辦理退貨不須刷取手機條碼即可退貨，全家集點點數會即時扣回，同現行ㄧ般退貨流程。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q7: 不是智慧型手機一樣可以用嗎(累兌點需要在網路系統下操作嗎)?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 不行，累兌點需要在有網路連線的情況下才可以操作。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q8: 我不會用手機一樣可以用嗎?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 使用者可事先於FamiPort或官網加入成為全家會員，全家會員只要報手機號碼即可累點。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q9: 有多張全店集點卡可以使用在同一筆交易兌換嗎?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 不行，需加入會員後進行多張集點卡歸戶動作，歸戶到同一全家會員帳戶後才可進行兌點。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q10: 全家集點卡歸戶可以綁定多少張？</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 單一會員帳戶最多綁定10張全家集點卡。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q11: 全家集點卡使用期限?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 全家集點卡一但啟用(累點)後半年內未再累點，則該張集點卡失效。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q12: 全店集點卡如有異常交易，於櫃檯無法刷取條碼要如何處理？</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 請通知客服中心協助帳戶處理。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q13: 在全家APP、My FamiPort APP兌換後手機條碼時效問題？</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 兌點條碼若10分鐘內未到櫃枱結帳，點數會自動歸還；或可以按【取消兌換】歸還點數，如再次按下【顯示條碼】則再次扣除點數及重新倒數10分鐘的兌換時間。</p>
+        </details>
+        <details class="bg-gray-100 p-4 rounded-lg shadow faq-item block">
+          <summary class="text-lg font-bold cursor-pointer text-green-800">Q14: 點數是否有使用期限?</summary>
+          <p class="text-gray-700 mt-2 leading-relaxed">Ans: 自2018年1月3日起，當年度累積的點數於累點隔年3月31日失效，若點數到期前未使用完畢，將自動失效歸零。如2018年1月3日累積的點數，使用期限至2019年3月31日，2019年4月1日點數將做歸零處理。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
